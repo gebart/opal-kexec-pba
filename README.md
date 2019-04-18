@@ -135,12 +135,13 @@ to generate an image.
     - `t` `EF00`
     - `c` `Unlock drive`
 6. `losetup -f --show -o 1048576 opal.gptdisk`
-7. `mount [loopback device] /mnt/opal`
-8. Copy `bootdisk/EFI` to `/mnt/opal/EFI` (syslinux installation)
-9. Copy isolinux `bootx64.efi` and `ldlinux.e64` to `/mnt/opal/EFI/Boot/`
-10. Put a known good kernel at `/mnt/opal/EFI/Boot/bzImage`
-11. Place `unlock.cpio.xz` at `/mnt/opal/EFI/Boot/unlock.cpio.xz`
-12. `umount /mnt/opal`
+7. `mkfs.ext4 [loopback device]` (initialize a filesystem)
+8. `mount [loopback device] /mnt/opal`
+9. Copy `bootdisk/EFI` to `/mnt/opal/EFI` (syslinux installation)
+10. Copy isolinux `bootx64.efi` and `ldlinux.e64` to `/mnt/opal/EFI/Boot/`
+11. Put a known good kernel at `/mnt/opal/EFI/Boot/bzImage`
+12. Place `unlock.cpio.xz` at `/mnt/opal/EFI/Boot/unlock.cpio.xz`
+13. `umount /mnt/opal`
 
 It is also possible to start with the LinuxPBA image instead of an empty image,
 mount it, and replace the syslinux.cfg, kernel bzImage, and initramfs.
