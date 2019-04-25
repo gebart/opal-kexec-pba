@@ -135,7 +135,7 @@ to generate an image.
     - `t` `EF00`
     - `c` `Unlock drive`
 6. `losetup -f --show -o 1048576 opal.gptdisk`
-7. `mkfs.ext4 [loopback device]` (initialize a filesystem)
+7. `mkfs.vfat [loopback device]` (initialize a filesystem)
 8. `mount [loopback device] /mnt/opal`
 9. Copy `bootdisk/EFI` to `/mnt/opal/EFI` (syslinux installation)
 10. Copy isolinux `bootx64.efi` and `ldlinux.e64` to `/mnt/opal/EFI/Boot/`
